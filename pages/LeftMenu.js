@@ -2,17 +2,22 @@ import Link from "next/link";
 import styled from "styled-components";
 import vars from "./Variables";
 
-const LeftMenu = () => (
+const LeftMenu = props => (
     <LeftMenuStyled>
         <LogoStyled />
         <MenuItemsStyled small>
             <React.Fragment>
-                <Link href="/">
+                <Link prefetch href="/">
                     <MenuItemStyled>
                         <a>Home</a>
                     </MenuItemStyled>
                 </Link>
-                <Link href="/about">
+                <Link prefetch href="/movies">
+                    <MenuItemStyled>
+                        <a>Films à voir</a>
+                    </MenuItemStyled>
+                </Link>
+                <Link prefetch href="/about">
                     <MenuItemStyled>
                         <a>About</a>
                     </MenuItemStyled>

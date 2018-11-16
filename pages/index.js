@@ -2,27 +2,36 @@ import Layout from "./layout.js";
 import Link from "next/link";
 import styled from "styled-components";
 
-function getPosts() {
-    return [
-        { id: "hello-nextjs", title: "Hello Next.js" },
-        { id: "learn-nextjs", title: "Learn Next.js is awesome" },
-        { id: "deploy-nextjs", title: "Deploy apps with ZEIT" }
-    ];
-}
+const postFileNames =
+    preval`
+module.exports = require("fs").readdirSync("./posts")
+` || [];
 
-export default () => (
+export const posts = postFileNames.map(name => {
+    const {
+        default: Component,
+        meta: { title, id, author, date }
+    } = require("../posts/" + name);
+
+    return {
+        Component,
+        title,
+        id,
+        author,
+        date
+    };
+});
+
+export default props => (
     <Layout>
         <h1>My Blog</h1>
         <ul>
-            {getPosts().map(post => (
-                <li key={post.id}>
-                    <Link
-                        as={`/p/${post.id}`}
-                        href={`/post?title=${post.title}`}
-                    >
-                        <a>{post.title}</a>
-                    </Link>
-                </li>
+            {posts.map(post => (
+                <Link prefetch as={`/p/${post.id}`} href={`/post?title=${post.title}`}>
+                    <li>
+                        <h2>{post.title}</h2>
+                    </li>
+                </Link>
             ))}
         </ul>
         <style jsx>{`

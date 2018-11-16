@@ -1,40 +1,45 @@
-import Layout from './layout.js'
-import {withRouter} from 'next/router'
-import Markdown from 'react-markdown'
+import Layout from "./layout.js";
+import { withRouter } from "next/router";
+// import posts from "./index";
 
-export default withRouter((props) => (
-  <Layout>
-   <h1>{props.router.query.title}</h1>
-   <div className="markdown">
-     <Markdown source={`
-This is our blog post.
-Yes. We can have a [link](/link).
-And we can have a title as well.
+const postFileNames =
+    preval`
+module.exports = require("fs").readdirSync("./posts")
+` || [];
 
-### This is a title
+const posts = postFileNames.map(name => {
+    const {
+        default: Component,
+        meta: { title, id, author, date }
+    } = require("../posts/" + name);
 
-And here's the content.
-     `}/>
-   </div>
-   <style jsx global>{`
-     .markdown {
-       font-family: 'Arial';
-     }
+    return {
+        Component,
+        title,
+        id,
+        author,
+        date
+    };
+});
 
-     .markdown a {
-       text-decoration: none;
-       color: blue;
-     }
+const Content = withRouter(props => (
+    <div>
+        {posts.map(post => (
+            <React.Fragment>
+                {post.id === parseInt(props.router.query.id) && (
+                    <h2>{post.title}</h2>
+                )}
+                {post.id === parseInt(props.router.query.id) && (
+                    <post.Component />
+                )}
+            </React.Fragment>
+        ))}
+    </div>
+));
 
-     .markdown a:hover {
-       opacity: 0.6;
-     }
-
-     .markdown h3 {
-       margin: 0;
-       padding: 0;
-       text-transform: uppercase;
-     }
-  `}</style>
-  </Layout>
-))
+const Page = props => (
+    <Layout>
+        <Content />
+    </Layout>
+);
+export default Page;
