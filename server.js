@@ -15,13 +15,18 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
 })
 
+server.get('/photo/:id', (req, res) => {
+  const query = { id: req.params.id }
+  return app.render(req, res, '/photo', query)
+})
+
   server.get('*', (req, res) => {
     return handle(req, res)
   })
 
-  server.listen(3000, (err) => {
+  server.listen(4062, (err) => {
     if (err) throw err
-    console.log('> Ready on http://localhost:3000')
+    console.log('> Ready on http://localhost:4062')
   })
 })
 .catch((ex) => {

@@ -27,7 +27,7 @@ export default props => (
         <h1>My Blog</h1>
         <ul>
             {posts.map(post => (
-                <Link prefetch as={`/p/${post.id}`} href={`/post?title=${post.title}`}>
+                <Link prefetch as={`/p/${post.id}`} href={`/post?id=${post.id}`}>
                     <li>
                         <h2>{post.title}</h2>
                     </li>

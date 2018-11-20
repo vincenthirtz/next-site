@@ -12,6 +12,11 @@ const LeftMenu = props => (
                         <a>Home</a>
                     </MenuItemStyled>
                 </Link>
+                <Link prefetch href="/moments">
+                    <MenuItemStyled>
+                        <a>Photos</a>
+                    </MenuItemStyled>
+                </Link>
                 <Link prefetch href="/movies">
                     <MenuItemStyled>
                         <a>Films à voir</a>

@@ -26,10 +26,10 @@ const Content = withRouter(props => (
     <div>
         {posts.map(post => (
             <React.Fragment>
-                {post.id === parseInt(props.router.query.id) && (
+                {parseInt(post.id) === parseInt(props.router.query.id) && (
                     <h2>{post.title}</h2>
                 )}
-                {post.id === parseInt(props.router.query.id) && (
+                {parseInt(post.id) === parseInt(props.router.query.id) && (
                     <post.Component />
                 )}
             </React.Fragment>
