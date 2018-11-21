@@ -1,4 +1,4 @@
-import Layout from "./layout.js";
+import Layout from "./Layout";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -22,12 +22,21 @@ export const posts = postFileNames.map(name => {
     };
 });
 
+const today = new Date(Date.now());
+var dd = today.getDate();
+var mm = today.getMonth() + 1;
+var yyyy = today.getFullYear();
+
 export default props => (
-    <Layout>
+    <div>
         <h1>My Blog</h1>
         <ul>
             {posts.map(post => (
-                <Link prefetch as={`/p/${post.id}`} href={`/post?id=${post.id}`}>
+                <Link
+                    prefetch
+                    href={`/post?id=${post.id}`}
+                    as={`/${yyyy}/${mm}/${dd}/${post.id}/${post.title}`}
+                >
                     <li>
                         <h2>{post.title}</h2>
                     </li>
@@ -58,5 +67,5 @@ export default props => (
                 opacity: 0.6;
             }
         `}</style>
-    </Layout>
+    </div>
 );

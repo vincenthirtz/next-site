@@ -21,6 +21,7 @@
     "next-mdx-blog": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-instagram-embed": "^1.4.1",
     "react-markdown": "^4.0.3",
     "styled-components": "^4.1.1"
   },

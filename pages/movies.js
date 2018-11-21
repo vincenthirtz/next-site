@@ -4,7 +4,6 @@ import fetch from "isomorphic-fetch";
 import Link from "next/link";
 import ShowCard from "../components/netflixTemplates/ShowCard";
 import Navigation from "../components/netflixTemplates/Navigation";
-import Layout from "./layout.js";
 
 class movies extends Component {
     static async getInitialProps({ query: { page } }) {
@@ -32,24 +31,22 @@ class movies extends Component {
         } = this.props;
 
         return (
-            <Layout>
-                <MoviesStyled>
-                    <FlexStyled>
-                        {shows.map(show => (
-                            <BoxStyled key={show._id}>
-                                <Link href={`/show?id=${show._id}`}>
-                                    <ShowCard image={show.images.poster} />
-                                </Link>
-                            </BoxStyled>
-                        ))}
-                    </FlexStyled>
-                    <FlexStyled>
-                        <BoxStyled>
-                            <Navigation url="/?page=" page={parseInt(page)} />
+            <MoviesStyled>
+                <FlexStyled>
+                    {shows.map(show => (
+                        <BoxStyled key={show._id}>
+                            <Link href={`/show?id=${show._id}`}>
+                                <ShowCard image={show.images.poster} />
+                            </Link>
                         </BoxStyled>
-                    </FlexStyled>
-                </MoviesStyled>
-            </Layout>
+                    ))}
+                </FlexStyled>
+                <FlexStyled>
+                    <BoxStyled>
+                        <Navigation url="/?page=" page={parseInt(page)} />
+                    </BoxStyled>
+                </FlexStyled>
+            </MoviesStyled>
         );
     }
 }

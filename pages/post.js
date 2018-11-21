@@ -1,6 +1,5 @@
-import Layout from "./layout.js";
+import React from "react";
 import { withRouter } from "next/router";
-// import posts from "./index";
 
 const postFileNames =
     preval`
@@ -38,8 +37,8 @@ const Content = withRouter(props => (
 ));
 
 const Page = props => (
-    <Layout>
+    <React.Fragment>
         <Content />
-    </Layout>
+    </React.Fragment>
 );
 export default Page;
