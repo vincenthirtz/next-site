@@ -26,13 +26,13 @@ class Layout extends React.Component {
                         <LeftMenuStyled small={leftMenuSmall}>
                             <ToggleIconStyled onClick={this.toggleLeftMenu}>
                                 <i
-                                    class={`fas fa-angle-${
+                                    className={`fas fa-angle-${
                                         leftMenuSmall ? "right" : "left"
                                     }`}
                                 />
                             </ToggleIconStyled>
                             <ToggleIconStyled shadow />
-                            <LeftMenu />
+                            <LeftMenu small={leftMenuSmall} />
                         </LeftMenuStyled>
                     </React.Fragment>
                     <MainStyled>
