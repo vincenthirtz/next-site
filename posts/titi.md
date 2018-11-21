@@ -1,8 +1,10 @@
 export const meta = {
-  id: 2,
-  title: "COUCOU",
-  date: "16/11/2018",
-  author: "Vincent Hirtz",
+id: 2,
+title: "COUCOU",
+yyyy: "2018",
+mm: "11",
+dd: "16",
+author: "Vincent Hirtz",
 }
 
 ### Today was nice

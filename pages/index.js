@@ -10,7 +10,7 @@ module.exports = require("fs").readdirSync("./posts")
 export const posts = postFileNames.map(name => {
     const {
         default: Component,
-        meta: { title, id, author, date }
+        meta: { title, id, author, yyyy, mm, dd }
     } = require("../posts/" + name);
 
     return {
@@ -18,14 +18,11 @@ export const posts = postFileNames.map(name => {
         title,
         id,
         author,
-        date
+        yyyy,
+        mm,
+        dd
     };
 });
-
-const today = new Date(Date.now());
-var dd = today.getDate();
-var mm = today.getMonth() + 1;
-var yyyy = today.getFullYear();
 
 export default props => (
     <div>
@@ -35,7 +32,7 @@ export default props => (
                 <Link
                     prefetch
                     href={`/post?id=${post.id}`}
-                    as={`/${yyyy}/${mm}/${dd}/${post.id}/${post.title}`}
+                    as={`/${post.yyyy}/${post.mm}/${post.dd}/${post.id}/${post.title}`}
                 >
                     <li>
                         <h2>{post.title}</h2>
