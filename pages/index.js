@@ -1,6 +1,6 @@
-import Layout from "./Layout";
 import Link from "next/link";
 import styled from "styled-components";
+import vars from "./Variables";
 
 const postFileNames =
     preval`
@@ -25,44 +25,110 @@ export const posts = postFileNames.map(name => {
 });
 
 export default props => (
-    <div>
-        <h1>My Blog</h1>
-        <ul>
-            {posts.map(post => (
-                <Link
-                    prefetch
-                    href={`/post?id=${post.id}`}
-                    as={`/${post.yyyy}/${post.mm}/${post.dd}/${post.id}/${post.title}`}
-                >
-                    <li>
-                        <h2>{post.title}</h2>
-                    </li>
-                </Link>
-            ))}
-        </ul>
-        <style jsx>{`
-            h1,
-            a {
-                font-family: "Arial";
-            }
+    <FlexStyled>
+        <TricksStyled>
+            <h1>
+                <i class="fab fa-dev" />
+            </h1>
+            <UlStyled>
+                {posts.map(post => (
+                    <Link
+                        prefetch
+                        href={`/post?id=${post.id}`}
+                        as={`/${post.yyyy}/${post.mm}/${post.dd}/${post.id}/${
+                            post.title
+                        }`}
+                    >
+                        <LiStyled>
+                            <TitleStyled>{post.title} </TitleStyled>
+                            <DateStyled>
+                                {post.dd}/{post.mm}/{post.yyyy}
+                            </DateStyled>
+                        </LiStyled>
+                    </Link>
+                ))}
+            </UlStyled>
+        </TricksStyled>
 
-            ul {
-                padding: 0;
-            }
+        <InfosStyled>
+            <h1>
+                <i class="fab fa-twitch" />
+            </h1>
+            <UlStyled>
+                {posts.map(post => (
+                    <Link
+                        prefetch
+                        href={`/post?id=${post.id}`}
+                        as={`/${post.yyyy}/${post.mm}/${post.dd}/${post.id}/${
+                            post.title
+                        }`}
+                    >
+                        <LiStyled>
+                            <TitleStyled>{post.title} </TitleStyled>
+                            <DateStyled>
+                                {post.dd}/{post.mm}/{post.yyyy}
+                            </DateStyled>
+                        </LiStyled>
+                    </Link>
+                ))}
+            </UlStyled>
+        </InfosStyled>
 
-            li {
-                list-style: none;
-                margin: 5px 0;
-            }
-
-            a {
-                text-decoration: none;
-                color: blue;
-            }
-
-            a:hover {
-                opacity: 0.6;
-            }
-        `}</style>
-    </div>
+        <PartThreeStyled>
+            <h1>
+                <i class="fab fa-js" />
+            </h1>
+            <UlStyled>
+                {posts.map(post => (
+                    <Link
+                        prefetch
+                        href={`/post?id=${post.id}`}
+                        as={`/${post.yyyy}/${post.mm}/${post.dd}/${post.id}/${
+                            post.title
+                        }`}
+                    >
+                        <LiStyled>
+                            <TitleStyled>{post.title} </TitleStyled>
+                            <DateStyled>
+                                {post.dd}/{post.mm}/{post.yyyy}
+                            </DateStyled>
+                        </LiStyled>
+                    </Link>
+                ))}
+            </UlStyled>
+        </PartThreeStyled>
+    </FlexStyled>
 );
+
+const FlexStyled = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
+const TricksStyled = styled.div`
+    flex: 1;
+`;
+const InfosStyled = styled.div`
+    flex: 1;
+`;
+const PartThreeStyled = styled.div`
+    flex: 1;
+`;
+
+const UlStyled = styled.div`
+    padding: 0;
+`;
+
+const TitleStyled = styled.span`
+    font-size: 16px;
+`;
+
+const LiStyled = styled.li`
+    list-style: none;
+    display: flex;
+    align-items: baseline;
+`;
+
+const DateStyled = styled.div`
+    font-size: 11px;
+    color: ${vars.bodyColorLight};
+`;

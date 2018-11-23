@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { withRouter } from "next/router";
 
 const postFileNames =
@@ -26,7 +27,12 @@ const Content = withRouter(props => (
         {posts.map(post => (
             <React.Fragment>
                 {parseInt(post.id) === parseInt(props.router.query.id) && (
-                    <h2>{post.title}</h2>
+                    <h2>
+                        <Link href="/">
+                            <i className="fas fa-angle-left" />
+                        </Link>
+                        {post.title}
+                    </h2>
                 )}
                 {parseInt(post.id) === parseInt(props.router.query.id) && (
                     <post.Component />

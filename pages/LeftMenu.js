@@ -84,54 +84,10 @@ const MenuItemStyled = styled.li`
     cursor: pointer;
     position: relative;
     text-align: center;
-    .content {
-        display: flex;
-        flex-direction: row;
-        border-left: 4px solid transparent;
-        span {
-            flex: 1;
-        }
-    }
-    li {
-        .content {
-            border-left-width: 0px;
-        }
-    }
-    a {
-        color: ${vars.bodyColorLight};
-        text-decoration: none;
-    }
-    i {
-        width: 35px;
-        text-align: center;
-        display: inline-block;
-    }
-    .goToIcon i {
-       display: none;
-    }
-    &.current >.content,
-    &:hover >.content {
-        color: ${vars.bodyColor};
-        border-left-color: ${vars.activeColor};
-        i:first-child {
-            color: ${vars.activeColor};
-        }
-    }
-    &:hover:not(.current) >.content {
-        .goToIcon i {
-            display: inline-block;
-        }
-    }
-    @media screen and (min-width: ${vars.screenXsMin}) {
-    ul {
-        ${props => props.small && "position: absolute;"}
-        ${props => props.small && "top: 0;"}
-        ${props => props.small && "left: 100%;"}
-        ${props => props.small && "z-index: -1;"}
-        ${props => props.small && `box-shadow: ${vars.boxShadow};`}
-        ${props => props.small && "background: #fff;"}
-        ${props => props.small && "width: 150px;"}
-    }
-}
 
+    &:hover {
+        & > a {
+            color: ${vars.actionColor};
+        }
+    }
 `;
