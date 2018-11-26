@@ -10,13 +10,15 @@ app.prepare()
         const server = express();
 
         server.get("/:y/:m/:d/:id/:title", (req, res) => {
+            console.log(req.params)
             const actualPage = "/post";
             const queryParams = {
                 id: req.params.id,
                 y: req.params.y,
                 m: req.params.m,
                 d: req.params.d,
-                title: req.params.title
+                title: req.params.title,
+                category: req.params.category,
             };
             app.render(req, res, actualPage, queryParams);
         });

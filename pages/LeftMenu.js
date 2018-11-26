@@ -4,27 +4,60 @@ import vars from "./Variables";
 
 const LeftMenu = props => (
     <LeftMenuStyled>
-        <LogoStyled />
+        <LogoStyled>
+            <img
+                src="https://cdn.discordapp.com/attachments/347394327204331532/516578471770718218/31092476.png"
+                alt
+            />
+        </LogoStyled>
         <MenuItemsStyled small>
             <React.Fragment>
                 <Link prefetch href="/">
                     <MenuItemStyled>
-                        <a>Home</a>
+                        {props.small ? (
+                            <i class="fas fa-home" />
+                        ) : (
+                            <TextStyled>
+                                <i class="fas fa-home" />
+                                <a>Blog</a>
+                            </TextStyled>
+                        )}
                     </MenuItemStyled>
                 </Link>
                 <Link prefetch href="/moments">
                     <MenuItemStyled>
-                        <a>Photos</a>
+                        {props.small ? (
+                            <i class="fas fa-camera-retro" />
+                        ) : (
+                            <TextStyled>
+                                <i class="fas fa-camera-retro" />
+                                <a>Photos</a>
+                            </TextStyled>
+                        )}
                     </MenuItemStyled>
                 </Link>
                 <Link prefetch href="/movies">
                     <MenuItemStyled>
-                        <a>Films à voir</a>
+                        {props.small ? (
+                            <i class="fas fa-film" />
+                        ) : (
+                            <TextStyled>
+                                <i class="fas fa-film" />
+                                <a>Films</a>
+                            </TextStyled>
+                        )}
                     </MenuItemStyled>
                 </Link>
                 <Link prefetch href="/about">
                     <MenuItemStyled>
-                        <a>About</a>
+                        {props.small ? (
+                            <i class="fas fa-address-card" />
+                        ) : (
+                            <TextStyled>
+                                <i class="fas fa-address-card" />
+                                <a>About</a>
+                            </TextStyled>
+                        )}
                     </MenuItemStyled>
                 </Link>
             </React.Fragment>
@@ -33,6 +66,12 @@ const LeftMenu = props => (
 );
 
 export default LeftMenu;
+
+const TextStyled = styled.div`
+    & > * {
+        padding: 0 2px;
+    }
+`;
 
 const LeftMenuStyled = styled.div`
     height: 100%;
@@ -43,7 +82,9 @@ const LogoStyled = styled.div`
     padding: 10px;
     height: 50px;
     line-height: 50px;
+    text-align: center;
     img {
+        border-radius: 50%;
         max-width: 100%;
         vertical-align: middle;
         max-height: 50px;
@@ -86,7 +127,7 @@ const MenuItemStyled = styled.li`
     text-align: center;
 
     &:hover {
-        & > a {
+        & > * {
             color: ${vars.actionColor};
         }
     }

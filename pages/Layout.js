@@ -36,7 +36,9 @@ class Layout extends React.Component {
                         </LeftMenuStyled>
                     </React.Fragment>
                     <MainStyled>
-                        <HeaderStyled />
+                        <HeaderStyled>
+                            TOTO
+                        </HeaderStyled>
                         <ChildrenStyled>{this.props.children}</ChildrenStyled>
                     </MainStyled>
                 </LayoutStyled>

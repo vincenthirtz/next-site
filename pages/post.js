@@ -2,16 +2,34 @@ import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
-const postFileNames =
-    preval`
-module.exports = require("fs").readdirSync("./posts")
-` || [];
+// const postFileNames =
+//     preval`
+// module.exports = require("fs").readdirSync("./posts/dev/")
+// ` || [];
+
+var walkSync = function(dir, filelist) {
+    var fs = fs || require('fs'),
+        files = fs.readdirSync(dir);
+    filelist = filelist || [];
+    files.forEach(function(file) {
+      if (fs.statSync(dir + file).isDirectory()) {
+        filelist = walkSync(dir + file + '/', filelist);
+      }
+      else {
+        filelist.push(file);
+      }
+    });
+    return filelist;
+  };
+
+  const postFileNames = walkSync("posts");
+  console.log(postFileNames);
 
 const posts = postFileNames.map(name => {
     const {
         default: Component,
         meta: { title, id, author, date }
-    } = require("../posts/" + name);
+    } = require("../posts/dev/" + name);
 
     return {
         Component,
@@ -22,29 +40,20 @@ const posts = postFileNames.map(name => {
     };
 });
 
-const Content = withRouter(props => (
-    <div>
-        {posts.map(post => (
+
+const Page = withRouter(props => (
+    <React.Fragment>
+        {console.log(props.router.query)}
             <React.Fragment>
-                {parseInt(post.id) === parseInt(props.router.query.id) && (
                     <h2>
                         <Link href="/">
                             <i className="fas fa-angle-left" />
                         </Link>
-                        {post.title}
+                        {/* {props.post.title} */}
                     </h2>
-                )}
-                {parseInt(post.id) === parseInt(props.router.query.id) && (
-                    <post.Component />
-                )}
+                    <props.router.query.component />
             </React.Fragment>
-        ))}
-    </div>
+    </React.Fragment>
 ));
 
-const Page = props => (
-    <React.Fragment>
-        <Content />
-    </React.Fragment>
-);
 export default Page;
