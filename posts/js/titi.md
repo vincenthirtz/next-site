@@ -5,7 +5,7 @@ yyyy: "2018",
 mm: "11",
 dd: "16",
 author: "Vincent Hirtz",
-category: "twitch",
+category: "js",
 }
 
 ### Today was nice
