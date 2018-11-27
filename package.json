@@ -24,6 +24,7 @@
     "react-dom": "^16.4.2",
     "react-instagram-embed": "^1.4.1",
     "react-markdown": "^4.0.3",
+    "react-share": "^2.4.0",
     "react-star-rating-component": "^1.4.1",
     "styled-components": "^4.1.1"
   },

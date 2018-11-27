@@ -1,5 +1,11 @@
 import LeftMenu from "./LeftMenu";
 import styled from "styled-components";
+import {
+    FacebookShareButton,
+    GooglePlusShareButton,
+    LinkedinShareButton,
+    TwitterShareButton
+} from "react-share";
 import vars from "./Variables";
 
 class Layout extends React.Component {
@@ -37,7 +43,12 @@ class Layout extends React.Component {
                     </React.Fragment>
                     <MainStyled>
                         <HeaderStyled>
-                            TOTO
+                            <LinkedinShareButton
+                            url="http://localhost:4062/movies"
+                            children="tt"
+                                title="test"
+                                description="description test"
+                            />
                         </HeaderStyled>
                         <ChildrenStyled>{this.props.children}</ChildrenStyled>
                     </MainStyled>
