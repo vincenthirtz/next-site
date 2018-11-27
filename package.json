@@ -17,13 +17,14 @@
     "child_process": "^1.0.2",
     "express": "^4.16.4",
     "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.3.1",
     "next": "^7.0.2",
     "next-compose-plugins": "^2.1.1",
-    "next-mdx-blog": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-instagram-embed": "^1.4.1",
     "react-markdown": "^4.0.3",
+    "react-star-rating-component": "^1.4.1",
     "styled-components": "^4.1.1"
   },
   "devDependencies": {

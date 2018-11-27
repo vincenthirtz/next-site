@@ -15,10 +15,10 @@ const LeftMenu = props => (
                 <Link prefetch href="/">
                     <MenuItemStyled>
                         {props.small ? (
-                            <i class="fas fa-home" />
+                            <i className="fas fa-home" />
                         ) : (
                             <TextStyled>
-                                <i class="fas fa-home" />
+                                <i className="fas fa-home" />
                                 <a>Blog</a>
                             </TextStyled>
                         )}
@@ -27,10 +27,10 @@ const LeftMenu = props => (
                 <Link prefetch href="/moments">
                     <MenuItemStyled>
                         {props.small ? (
-                            <i class="fas fa-camera-retro" />
+                            <i className="fas fa-camera-retro" />
                         ) : (
                             <TextStyled>
-                                <i class="fas fa-camera-retro" />
+                                <i className="fas fa-camera-retro" />
                                 <a>Photos</a>
                             </TextStyled>
                         )}
@@ -39,10 +39,10 @@ const LeftMenu = props => (
                 <Link prefetch href="/movies">
                     <MenuItemStyled>
                         {props.small ? (
-                            <i class="fas fa-film" />
+                            <i className="fas fa-film" />
                         ) : (
                             <TextStyled>
-                                <i class="fas fa-film" />
+                                <i className="fas fa-film" />
                                 <a>Films</a>
                             </TextStyled>
                         )}
@@ -51,10 +51,10 @@ const LeftMenu = props => (
                 <Link prefetch href="/about">
                     <MenuItemStyled>
                         {props.small ? (
-                            <i class="fas fa-address-card" />
+                            <i className="fas fa-address-card" />
                         ) : (
                             <TextStyled>
-                                <i class="fas fa-address-card" />
+                                <i className="fas fa-address-card" />
                                 <a>About</a>
                             </TextStyled>
                         )}

@@ -31,14 +31,14 @@ class Index extends React.Component {
         <FlexStyled>
           <TricksStyled>
             <h1>
-              <i class="fab fa-dev" />
+              <i className="fab fa-dev" />
             </h1>
             <UlStyled>{postsDev.map(post => this.getTemplate(post))}</UlStyled>
           </TricksStyled>
 
           <InfosStyled>
             <h1>
-              <i class="fab fa-twitch" />
+              <i className="fab fa-twitch" />
             </h1>
 
             <UlStyled>
@@ -48,7 +48,7 @@ class Index extends React.Component {
 
           <PartThreeStyled>
             <h1>
-              <i class="fab fa-js" />
+              <i className="fab fa-js" />
             </h1>
             <UlStyled>{postsJs.map(post => this.getTemplate(post))}</UlStyled>
           </PartThreeStyled>
@@ -57,21 +57,21 @@ class Index extends React.Component {
         <FlexStyled>
           <TricksStyled>
             <h1>
-              <i class="fab fa-html5" />
+              <i className="fab fa-html5" />
             </h1>
             <UlStyled>{postsDev.map(post => this.getTemplate(post))}</UlStyled>
           </TricksStyled>
 
           <InfosStyled>
             <h1>
-              <i class="fab fa-php" />
+              <i className="fab fa-php" />
             </h1>
             <UlStyled>{postsDev.map(post => this.getTemplate(post))}</UlStyled>
           </InfosStyled>
 
           <PartThreeStyled>
             <h1>
-              <i class="fab fa-react" />
+              <i className="fab fa-react" />
             </h1>
             <UlStyled>{postsDev.map(post => this.getTemplate(post))}</UlStyled>
           </PartThreeStyled>

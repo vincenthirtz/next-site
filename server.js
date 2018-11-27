@@ -23,11 +23,6 @@ app
       app.render(req, res, actualPage, queryParams);
     });
 
-    server.get("/photo/:id", (req, res) => {
-      const query = { id: req.params.id };
-      return app.render(req, res, "/photo", query);
-    });
-
     server.get("*", (req, res) => {
       return handle(req, res);
     });
