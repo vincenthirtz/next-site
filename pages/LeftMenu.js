@@ -86,6 +86,7 @@ const LogoStyled = styled.div`
     line-height: 50px;
     text-align: center;
     img {
+        cursor: pointer;
         border-radius: 50%;
         max-width: 100%;
         vertical-align: middle;
