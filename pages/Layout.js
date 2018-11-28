@@ -1,11 +1,5 @@
 import LeftMenu from "./LeftMenu";
 import styled from "styled-components";
-import {
-    FacebookShareButton,
-    GooglePlusShareButton,
-    LinkedinShareButton,
-    TwitterShareButton
-} from "react-share";
 import vars from "./Variables";
 
 class Layout extends React.Component {
@@ -43,12 +37,7 @@ class Layout extends React.Component {
                     </React.Fragment>
                     <MainStyled>
                         <HeaderStyled>
-                            <LinkedinShareButton
-                            url="http://localhost:4062/movies"
-                            children="tt"
-                                title="test"
-                                description="description test"
-                            />
+                        <a href="https://twitter.com/alukaard76?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @alukaard76</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                         </HeaderStyled>
                         <ChildrenStyled>{this.props.children}</ChildrenStyled>
                     </MainStyled>
@@ -143,6 +132,7 @@ const HeaderStyled = styled.div`
         line-height: ${vars.headerHeight};
         background: #fff;
         box-shadow: ${shadow};
+        text-align: right;
     }
 `;
 
