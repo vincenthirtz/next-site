@@ -5,10 +5,12 @@ import vars from "./Variables";
 const LeftMenu = props => (
     <LeftMenuStyled>
         <LogoStyled>
-            <img
-                src="https://cdn.discordapp.com/attachments/347394327204331532/516578471770718218/31092476.png"
-                alt
-            />
+            <Link prefetch href="/">
+                <img
+                    src="https://cdn.discordapp.com/attachments/347394327204331532/516578471770718218/31092476.png"
+                    alt
+                />
+            </Link>
         </LogoStyled>
         <MenuItemsStyled small>
             <React.Fragment>
