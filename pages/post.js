@@ -71,7 +71,7 @@ const Page = withRouter(props => {
             break;
     }
 
-    const disqusShortname = "example";
+    const disqusShortname = "vincenthirtz";
         const disqusConfig = {
             url: props.router.asPath,
             identifier: currentPost.id,
