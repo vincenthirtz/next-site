@@ -15,6 +15,7 @@
     "@zeit/next-mdx": "^1.2.0",
     "babel-plugin-styled-components": "^1.8.0",
     "child_process": "^1.0.2",
+    "disqus-react": "^1.0.5",
     "express": "^4.16.4",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.3.1",

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Disqus from 'disqus-react';
 import { withRouter } from "next/router";
 import styled from "styled-components";
 import {
@@ -14,6 +15,7 @@ import {
 const Page = withRouter(props => {
     let posts = [];
     let currentPost = {};
+
     switch (props.router.query.category) {
         case "dev":
             posts.concat(postsDev);
@@ -69,6 +71,13 @@ const Page = withRouter(props => {
             break;
     }
 
+    const disqusShortname = currentPost.title;
+        const disqusConfig = {
+            url: props.router.asPath,
+            identifier: currentPost.id,
+            title: currentPost.title,
+        };
+
     return (
         <React.Fragment>
             <BackIconStyled>
@@ -78,6 +87,7 @@ const Page = withRouter(props => {
             </BackIconStyled>
             <h2>{currentPost && currentPost.title}</h2>
             {currentPost && currentPost.Component && <currentPost.Component />}
+            <Disqus.DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
         </React.Fragment>
     );
 });

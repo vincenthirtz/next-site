@@ -19,6 +19,7 @@ export default class MyDocument extends Document {
                         name="description"
                         content="Créations web en tout genre, critiques de films, photos personnelles ici et là, quelques billets de blog et plein de folies."
                     />
+                    <link rel="canonical" href="http://www.vincenthirtz.fr/" />
                     <link
                         rel="stylesheet"
                         href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
