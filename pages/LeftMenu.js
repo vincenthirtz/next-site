@@ -2,70 +2,76 @@ import Link from "next/link";
 import styled from "styled-components";
 import vars from "./Variables";
 
-const LeftMenu = props => (
-    <LeftMenuStyled>
-        <LogoStyled>
-            <Link prefetch href="/">
-                <img
-                    src="https://cdn.discordapp.com/attachments/347394327204331532/516578471770718218/31092476.png"
-                    alt
-                />
-            </Link>
-        </LogoStyled>
-        <MenuItemsStyled small>
-            <React.Fragment>
-                <Link prefetch href="/">
-                    <MenuItemStyled>
-                        {props.small ? (
-                            <i className="fas fa-home" />
-                        ) : (
-                            <TextStyled>
-                                <i className="fas fa-home" />
-                                <a>Blog</a>
-                            </TextStyled>
-                        )}
-                    </MenuItemStyled>
-                </Link>
-                <Link prefetch href="/moments">
-                    <MenuItemStyled>
-                        {props.small ? (
-                            <i className="fas fa-camera-retro" />
-                        ) : (
-                            <TextStyled>
-                                <i className="fas fa-camera-retro" />
-                                <a>Photos</a>
-                            </TextStyled>
-                        )}
-                    </MenuItemStyled>
-                </Link>
-                <Link prefetch href="/movies">
-                    <MenuItemStyled>
-                        {props.small ? (
-                            <i className="fas fa-film" />
-                        ) : (
-                            <TextStyled>
-                                <i className="fas fa-film" />
-                                <a>Films</a>
-                            </TextStyled>
-                        )}
-                    </MenuItemStyled>
-                </Link>
-                <Link prefetch href="/about">
-                    <MenuItemStyled>
-                        {props.small ? (
-                            <i className="fas fa-address-card" />
-                        ) : (
-                            <TextStyled>
-                                <i className="fas fa-address-card" />
-                                <a>About</a>
-                            </TextStyled>
-                        )}
-                    </MenuItemStyled>
-                </Link>
-            </React.Fragment>
-        </MenuItemsStyled>
-    </LeftMenuStyled>
-);
+class LeftMenu extends React.Component {
+    render() {
+        const { small } = this.props;
+
+        return (
+            <LeftMenuStyled>
+                <LogoStyled small={small}>
+                    <Link prefetch href="/">
+                        <img
+                            src="https://cdn.discordapp.com/attachments/347394327204331532/516578471770718218/31092476.png"
+                            alt
+                        />
+                    </Link>
+                </LogoStyled>
+                <MenuItemsStyled small={small}>
+                    <React.Fragment>
+                        <Link prefetch href="/">
+                            <MenuItemStyled>
+                                {small ? (
+                                    <i className="fas fa-edit" />
+                                ) : (
+                                    <TextStyled>
+                                        <i className="fas fa-edit" />
+                                        <a>Blog</a>
+                                    </TextStyled>
+                                )}
+                            </MenuItemStyled>
+                        </Link>
+                        <Link prefetch href="/moments">
+                            <MenuItemStyled>
+                                {small ? (
+                                    <i className="fas fa-camera-retro" />
+                                ) : (
+                                    <TextStyled>
+                                        <i className="fas fa-camera-retro" />
+                                        <a>Photos</a>
+                                    </TextStyled>
+                                )}
+                            </MenuItemStyled>
+                        </Link>
+                        <Link prefetch href="/movies">
+                            <MenuItemStyled>
+                                {small ? (
+                                    <i className="fas fa-film" />
+                                ) : (
+                                    <TextStyled>
+                                        <i className="fas fa-film" />
+                                        <a>Films</a>
+                                    </TextStyled>
+                                )}
+                            </MenuItemStyled>
+                        </Link>
+                        <Link prefetch href="/about">
+                            <MenuItemStyled>
+                                {small ? (
+                                    <i className="fas fa-address-card" />
+                                ) : (
+                                    <TextStyled>
+                                        <i className="fas fa-address-card" />
+                                        <a>About</a>
+                                    </TextStyled>
+                                )}
+                            </MenuItemStyled>
+                        </Link>
+                    </React.Fragment>
+                </MenuItemsStyled>
+            </LeftMenuStyled>
+        );
+    }
+}
 
 export default LeftMenu;
 
@@ -88,9 +94,8 @@ const LogoStyled = styled.div`
     img {
         cursor: pointer;
         border-radius: 50%;
-        max-width: 100%;
         vertical-align: middle;
-        max-height: 50px;
+        max-height: ${props => (props.small ? "50px" : "80px")};
     }
 `;
 

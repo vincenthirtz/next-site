@@ -1,7 +1,7 @@
 const mainBlue = "#174193";
 
 export default {
-    defaultFont: "'Segoe UI', 'HelveticaNeue-Light', sans-serif",
+    defaultFont: "'Indie Flower', cursive",
     bodyBackground: "#F2F4F7",
     bodyColor: "#424242",
     bodyColorLight: "#98A3B5",

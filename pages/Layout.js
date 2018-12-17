@@ -56,11 +56,11 @@ const LayoutStyled = styled.div`
         color: ${vars.bodyColor};
         font-weight: 100;
         font-size: 1em;
-        font-family: ${vars.defaultFont};
         line-height: 16px;
     }
     html,
     body {
+        font-family: ${vars.defaultFont};
         height: 100%;
     }
     body {

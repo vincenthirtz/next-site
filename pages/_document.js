@@ -20,6 +20,7 @@ export default class MyDocument extends Document {
                         content="Créations web en tout genre, critiques de films, photos personnelles ici et là, quelques billets de blog et plein de folies."
                     />
                     <link rel="canonical" href="http://www.vincenthirtz.fr/" />
+                    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
                     <link
                         rel="stylesheet"
                         href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
@@ -28,7 +29,9 @@ export default class MyDocument extends Document {
                     />
                     <style>{`html, body { 
               height: 100%;
-              margin: 0 ;
+              margin: 0;
+              font-family: Roboto, sans-serif;
+              font-size: 14px;
               }
               
               #__next {
